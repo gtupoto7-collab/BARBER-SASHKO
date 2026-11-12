@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="bg" class="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aleksandar Cvetanov | Professional Barber Studio</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: { cyber: { 500: '#dc2626', 950: '#f8fafc' } }
+                }
+            }
+        }
+    </script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;700;900&display=swap');
+        body { font-family: 'Plus Jakarta Sans', sans-serif; background-color: #f1f5f9; color: #0f172a; }
+        .light-panel { background: #ffffff; border: 1px solid #cbd5e1; box-shadow: 0 10px 25px rgba(0,0,0,0.05); }
+    </style>
+</head>
+<body class="min-h-screen selection:bg-red-600 selection:text-white">
+
+    <!-- TOP LIGHT BARRIER -->
+    <div class="bg-gradient-to-r from-slate-900 via-red-900 to-slate-900 text-white py-3 px-4 text-center text-xs sm:text-sm font-black tracking-widest uppercase">
+        ⚡ <span class="text-red-400">ALEKSANDAR CVETANOV:</span> Професионален Barber студио | Безсмъртен уебсайт от Render & RED-SOFTWARE-TEAM-BG 🚀
+    </div>
+
+    <!-- NAVBAR -->
+    <nav class="sticky top-0 z-50 bg-white/90 backdrop-blur-xl border-b border-slate-200">
+        <div class="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
+            <div class="flex items-center space-x-4">
+                <div class="w-12 h-12 rounded-2xl bg-gradient-to-tr from-red-600 to-rose-500 flex items-center justify-center font-black text-xl text-white shadow-md overflow-hidden">
+                    AC
+                </div>
+                <div>
+                    <span class="text-xl font-black tracking-widest text-slate-900">ALEKSANDAR <span class="text-red-600">CVETANOV</span></span>
+                    <span class="block text-[10px] text-slate-500 font-bold uppercase tracking-widest">Professional Barber Studio</span>
+                </div>
+            </div>
+            <div class="flex items-center space-x-3">
+                <button onclick="toggleAdminModal()" class="px-4 py-2.5 rounded-xl bg-slate-900 hover:bg-red-600 text-xs font-black text-white transition">
+                    🔒 ADMIN MENU
+                </button>
+                <a href="tel:0899197871" class="px-5 py-2.5 rounded-xl bg-red-600 hover:bg-red-500 text-xs font-black text-white shadow-lg transition flex items-center gap-2">
+                    📞 0899 197 871
+                </a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- HERO SECTION -->
+    <header class="max-w-4xl mx-auto px-6 py-16 text-center space-y-6">
+        <div class="inline-block px-5 py-2 rounded-full bg-red-100 border border-red-300 text-red-600 text-xs font-black tracking-widest uppercase">
+            ◆ ЕЛИТНА ГРИЖА И ПРЕЦИЗНИ ФОРМИ ◆
+        </div>
+        <h1 class="text-4xl sm:text-6xl font-black text-slate-900 tracking-tight uppercase leading-tight">
+            Перфектният стайлинг: <span class="text-red-600">От брада до душа.</span>
+        </h1>
+        <p class="text-slate-600 text-base sm:text-lg max-w-2xl mx-auto font-medium">
+            Професионално подстригване, луксозни масла и перфектни преходи от Александър Цветанов. Запази час бързо и лесно!
+        </p>
+    </header>
+
+    <!-- BOOKING APPOINTMENT SECTION (FORM) -->
+    <section class="max-w-3xl mx-auto px-6 mb-12">
+        <div class="light-panel rounded-3xl p-8 space-y-6">
+            <div class="text-center space-y-2">
+                <span class="text-xs font-black text-red-600 uppercase tracking-widest">⚡ ОНЛАЙН ЗАПАЗВАНЕ НА ЧАС</span>
+                <h2 class="text-2xl font-black text-slate-900">Запази час при Александър</h2>
+                <p class="text-xs text-slate-500">Въведи своето име, телефон, желана дата и час.</p>
+            </div>
+            <div class="space-y-4">
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                    <input type="text" id="book-name" placeholder="Твоето име" class="w-full bg-slate-50 border border-slate-300 rounded-xl px-4 py-3 text-sm text-slate-900 focus:outline-none focus:border-red-600">
+                    <input type="tel" id="book-phone" placeholder="Телефонен номер (напр. 088...)" class="w-full bg-slate-50 border border-slate-300 rounded-xl px-4 py-3 text-sm text-slate-900 focus:outline-none focus:border-red-600">
+                </div>
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                    <div>
+                        <label class="block text-[10px] font-bold text-slate-500 uppercase mb-1">Избери дата:</label>
+                        <input type="date" id="book-date" class="w-full bg-slate-50 border border-slate-300 rounded-xl px-4 py-2.5 text-sm text-slate-900 focus:outline-none focus:border-red-600">
+                    </div>
+                    <div>
+                        <label class="block text-[10px] font-bold text-slate-500 uppercase mb-1">Избери час:</label>
+                        <input type="time" id="book-time" class="w-full bg-slate-50 border border-slate-300 rounded-xl px-4 py-2.5 text-sm text-slate-900 focus:outline-none focus:border-red-600">
+                    </div>
+                </div>
+                <button onclick="bookAppointment()" class="w-full py-4 rounded-xl bg-red-600 hover:bg-red-500 text-white font-black text-xs tracking-wider uppercase transition shadow-xl">
+                    📅 ПОТВЪРДИ И ЗАПАЗИ ЧАС СЕГА
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- SERVICES & MEDIA GRID -->
+    <main class="max-w-7xl mx-auto px-6 py-6 space-y-10">
+        <div>
+            <h2 class="text-xl font-black text-slate-900 uppercase mb-6 tracking-wide">✂️ Услуги, Оферти и Видеоклипове</h2>
+            <div id="services-grid" class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <!-- Dinamichni elementi -->
+            </div>
+        </div>
+    </main>
+
+    <!-- SECURE ADMIN MODAL (HIDDEN BY DEFAULT) -->
+    <div id="admin-modal" class="fixed inset-0 z-50 bg-slate-900/50 backdrop-blur-sm hidden flex items-center justify-center p-4">
+        <div class="bg-white border border-slate-200 rounded-3xl max-w-2xl w-full p-8 relative space-y-6 shadow-2xl max-h-[90vh] overflow-y-auto">
+            <button onclick="toggleAdminModal()" class="absolute top-4 right-4 text-slate-400 hover:text-slate-900 font-bold text-lg">✕</button>
+            <h3 class="text-xl font-black text-slate-900 uppercase">🔒 Секретен Административен Меню</h3>
+            
+            <!-- LOGIN FORM (SKRIT ZA KLIENTI) -->
+            <div id="admin-login-box" class="space-y-4">
+                <p class="text-xs text-slate-500">Въведете тайните данни за достъп (Само за Сашко):</p>
+                <input type="text" id="adm-user" placeholder="Потребителско име" class="w-full bg-slate-50 border border-slate-300 rounded-xl px-4 py-3 text-sm text-slate-900 focus:outline-none focus:border-red-600">
+                <input type="password" id="adm-pass" placeholder="Парола" class="w-full bg-slate-50 border border-slate-300 rounded-xl px-4 py-3 text-sm text-slate-900 focus:outline-none focus:border-red-600">
+                <button onclick="verifyAdminLogin()" class="w-full py-3 rounded-xl bg-red-600 hover:bg-red-500 text-white font-bold text-xs tracking-wider uppercase transition">ВХОД В СИСТЕМАТА</button>
+            </div>
+
+            <!-- ADMIN DASHBOARD (SAMO SLED VALIDEN LOGIN) -->
+            <div id="admin-dash-box" class="hidden space-y-6">
+                <div class="p-4 rounded-xl bg-slate-50 border border-slate-200 text-xs text-slate-700 flex justify-between items-center">
+                    <span>🟢 Статус: <b>Логнат като Сашко</b></span>
+                    <button onclick="adminLogout()" class="px-3 py-1 bg-slate-900 hover:bg-red-600 text-white font-bold rounded-lg text-[10px]">🚪 ИЗХОД</button>
+                </div>
+                
+                <!-- LIST OF BOOKINGS -->
+                <div class="space-y-2">
+                    <h4 class="text-xs font-black text-slate-900 uppercase">📅 Входящи резервации от клиенти:</h4>
+                    <div id="bookings-list" class="space-y-2 max-h-40 overflow-y-auto p-2 bg-slate-50 rounded-xl border border-slate-200 text-xs">
+                        <p class="text-slate-400">Няма нови резервации засега.</p>
+                    </div>
+                </div>
+
+                <hr class="border-slate-200">
+
+                <h4 class="text-xs font-black text-slate-900 uppercase">Добавяне на нова услуга или видеоклип:</h4>
+                <div class="space-y-3">
+                    <input type="text" id="srv-name" placeholder="Име (напр. VIP Fade или Видео клип)" class="w-full bg-slate-50 border border-slate-300 rounded-xl px-4 py-2.5 text-xs text-slate-900">
+                    <input type="text" id="srv-price" placeholder="Цена или статус (напр. 35 лв.)" class="w-full bg-slate-50 border border-slate-300 rounded-xl px-4 py-2.5 text-xs text-slate-900">
+                    <input type="text" id="srv-desc" placeholder="Описание" class="w-full bg-slate-50 border border-slate-300 rounded-xl px-4 py-2.5 text-xs text-slate-900">
+                    <div>
+                        <label class="block text-[10px] font-bold text-slate-500 uppercase mb-1">Качване на снимка или видео (Автобутон):</label>
+                        <input type="file" id="srv-file" accept="image/*,video/mp4" class="w-full text-xs text-slate-500 file:mr-4 file:py-2 file:px-4 file:rounded-xl file:border-0 file:text-xs file:font-semibold file:bg-red-50 file:text-red-700 hover:file:bg-red-100">
+                    </div>
+                    <button onclick="addNewItem()" class="w-full py-3 rounded-xl bg-red-600 hover:bg-red-500 text-white font-black text-xs tracking-wider uppercase transition shadow-md">
+                        🚀 АВТОМАТИЧНО КАЧВАНЕ И ДОБАВЯНЕ
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- FOOTER -->
+    <footer class="border-t border-slate-200 py-8 text-center text-xs text-slate-500 space-y-1">
+        <p>Aleksandar Cvetanov Professional Barber Studio © 2026</p>
+        <p>Powered by <span class="text-red-600 font-bold">RED-SOFTWARE-TEAM-BG</span> & Render Immortal Hosting.</p>
+    </footer>
+
+    <!-- JAVASCRIPT LOGIC -->
+    <script>
+        let items = [
+            { id: 1, name: "PREMIER FADE", price: "30 лв.", desc: "Превъзходно подстригване с прецизни преходи и контури.", type: "img", src: "https://images.unsplash.com/photo-1503951914875-452162b0f3f1?w=600&auto=format&fit=crop&q=80" },
+            { id: 2, name: "BEARD SCULPTING", price: "20 лв.", desc: "Оформяне на брада с бръснач и горещи кърпи.", type: "img", src: "https://images.unsplash.com/photo-1621605815971-fbc98d665033?w=600&auto=format&fit=crop&q=80" }
+        ];
+
+        let bookings = [];
+        let isAdminLoggedIn = false;
+
+        function renderItems() {
+            const grid = document.getElementById('services-grid');
+            let html = '';
+            items.forEach(item => {
+                let mediaHtml = item.type === 'video' 
+                    ? `<video src="${item.src}" controls class="w-full h-44 object-cover rounded-2xl"></video>`
+                    : `<img src="${item.src}" alt="${item.name}" class="w-full h-44 object-cover rounded-2xl">`;
+
+                let deleteBtnHtml = isAdminLoggedIn 
+                    ? `<button onclick="deleteItem(${item.id})" class="mt-3 w-full py-2 bg-red-100 hover:bg-red-600 text-red-600 hover:text-white font-black text-xs rounded-xl uppercase transition">🗑️ ИЗТРИЙ ОТ АДМИН</button>` 
+                    : '';
+
+                html += `
+                <div class="light-panel rounded-3xl overflow-hidden space-y-4 p-6 flex flex-col justify-between">
+                    <div>
+                        ${mediaHtml}
+                        <h3 class="text-lg font-black text-slate-900 mt-3">${item.name}</h3>
+                        <p class="text-xs text-slate-600 mt-1">${item.desc}</p>
+                    </div>
+                    <div>
+                        <div class="pt-3 border-t border-slate-200 flex justify-between items-center">
+                            <span class="text-xs font-bold text-slate-500 uppercase">Оферта</span>
+                            <span class="text-red-600 font-black text-base">${item.price}</span>
+                        </div>
+                        ${deleteBtnHtml}
+                    </div>
+                </div>`;
+            });
+            grid.innerHTML = html;
+        }
+
+        function renderBookings() {
+            const list = document.getElementById('bookings-list');
+            if (bookings.length === 0) {
+                list.innerHTML = `<p class="text-slate-400">Няма нови резервации засега.</p>`;
+                return;
+            }
+            let html = '';
+            bookings.forEach((b, idx) => {
+                html += `
+                <div class="p-3 bg-white rounded-xl border border-slate-200 flex justify-between items-center">
+                    <div>
+                        <strong>${b.name}</strong> (${b.phone})
+                        <div class="text-[10px] text-slate-500">Дата: ${b.date} в ${b.time}</div>
+                    </div>
+                    <button onclick="deleteBooking(${idx})" class="text-red-600 font-bold hover:underline">Изтрий</button>
+                </div>`;
+            });
+            list.innerHTML = html;
+        }
+
+        function bookAppointment() {
+            const name = document.getElementById('book-name').value;
+            const phone = document.getElementById('book-phone').value;
+            const date = document.getElementById('book-date').value;
+            const time = document.getElementById('book-time').value;
+
+            if (!name || !phone || !date || !time) {
+                alert('Моля, попълнете всички полета за запазване на час!');
+                return;
+            }
+
+            bookings.push({ name, phone, date, time });
+            renderBookings();
+            alert(`Успешно запазихте час, ${name}! Александър ще се свърже с вас на ${phone}.`);
+            
+            document.getElementById('book-name').value = '';
+            document.getElementById('book-phone').value = '';
+            document.getElementById('book-date').value = '';
+            document.getElementById('book-time').value = '';
+        }
+
+        function deleteBooking(idx) {
+            bookings.splice(idx, 1);
+            renderBookings();
+        }
+
+        function toggleAdminModal() { document.getElementById('admin-modal').classList.toggle('hidden'); }
+        
+        function verifyAdminLogin() {
+            const u = document.getElementById('adm-user').value;
+            const p = document.getElementById('adm-pass').value;
+            if (u === 'sashko123' && p === '123456') {
+                isAdminLoggedIn = true;
+                document.getElementById('admin-login-box').classList.add('hidden');
+                document.getElementById('admin-dash-box').classList.remove('hidden');
+                renderItems();
+                renderBookings();
+                alert('Успешен вход в секретното меню, шефе!');
+            } else { alert('Грешни данни!'); }
+        }
+
+        function adminLogout() {
+            isAdminLoggedIn = false;
+            document.getElementById('admin-login-box').classList.remove('hidden');
+            document.getElementById('admin-dash-box').classList.add('hidden');
+            document.getElementById('adm-user').value = '';
+            document.getElementById('adm-pass').value = '';
+            renderItems();
+            toggleAdminModal();
+            alert('Излязохте успешно от административния панел.');
+        }
+
+        function addNewItem() {
+            const name = document.getElementById('srv-name').value;
+            const price = document.getElementById('srv-price').value;
+            const desc = document.getElementById('srv-desc').value;
+            const fileInput = document.getElementById('srv-file');
+            
+            if (!name || !price) { alert('Въведете поне име и цена!'); return; }
+            
+            let mediaSrc = "https://images.unsplash.com/photo-1503951914875-452162b0f3f1?w=600&auto=format&fit=crop&q=80";
+            let mediaType = "img";
+
+            if (fileInput.files && fileInput.files[0]) {
+                const file = fileInput.files[0];
+                mediaSrc = URL.createObjectURL(file);
+                if (file.type.startsWith('video/')) mediaType = "video";
+            }
+
+            items.push({ id: Date.now(), name, price, desc, type: mediaType, src: mediaSrc });
+            renderItems();
+            alert('Успешно добавена нова услуга или видео!');
+            toggleAdminModal();
+            document.getElementById('srv-name').value = '';
+            document.getElementById('srv-price').value = '';
+            document.getElementById('srv-desc').value = '';
+            document.getElementById('srv-file').value = '';
+        }
+
+        function deleteItem(id) {
+            items = items.filter(i => i.id !== id);
+            renderItems();
+        }
+
+        renderItems();
+    </script>
+</body>
+</html>
